@@ -50,7 +50,10 @@
     }
     else {
         [resultsArray addObject:numberArrays];
-        [resultsArray addObject:stringArrays];
+        [stringArrays sortUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {
+            return [str2 compare:str1];
+        }];
+        [resultsArray addObject: stringArrays];
     }
 
     return resultsArray;
